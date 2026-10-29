@@ -4,36 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
-    <meta name="description" content="AI-Powered Celebration & Event Planner utilizing Generative AI for automated scheduling and budgeting.">
-    <title>AI Celebration & Event Planner | GenAI</title>
+    <meta name="description" content="AI Celebration & Event Planner for Weddings, Birthdays, and Community Events.">
+    <title>AI Celebration Planner</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header role="banner">
         <h1>AI Celebration & Event Planner</h1>
-        <p>Intelligent Event Scheduling, Budgeting & Celebration Assistant</p>
+        <p>Smart Budgets, Timelines, Vendor Checklists & Personalized Ideas</p>
     </header>
 
     <main role="main" class="container">
-        <section class="chat-interface" aria-label="Event Planning Assistant Interface">
+        <section class="chat-interface" aria-label="Event Planner Interface">
             <div id="chat-window" class="chat-window" aria-live="polite" role="log">
                 <div class="message ai-message">
-                    <strong>Event Planner AI:</strong> Welcome! I am your AI Celebration & Event Planner. What event or party are we organizing today?
+                    <strong>Event Planner AI:</strong> Hello! I organize <strong>Weddings</strong>, <strong>Birthdays</strong>, and <strong>Community Events</strong> with detailed budgets, timelines, vendor checklists, and personalized ideas.
                 </div>
             </div>
 
             <form id="chat-form" class="input-area" aria-label="Event Query Form">
                 <label for="user-input" class="sr-only">Type your event query</label>
-                <input type="text" id="user-input" placeholder="e.g., Plan a 50-person anniversary party schedule..." required aria-required="true">
+                <input type="text" id="user-input" placeholder="e.g., Plan a Wedding for 100 guests..." required aria-required="true">
                 <button type="submit" id="send-btn" aria-label="Generate Event Plan">Plan Event</button>
             </form>
         </section>
 
-        <aside class="quick-actions" aria-label="Event Planning Actions">
-            <h2>Event Automation</h2>
-            <button class="action-btn" data-prompt="Draft a birthday party timeline and itinerary." aria-label="Quick Action: Party Itinerary">Party Itinerary</button>
-            <button class="action-btn" data-prompt="Calculate budget and vendor list for 100 guests." aria-label="Quick Action: Budget Calculation">Budget & Vendors</button>
-            <button class="action-btn" data-prompt="Generate wedding ceremony checklist and RSVP tracker." aria-label="Quick Action: Wedding Checklist">Wedding Checklist</button>
+        <aside class="quick-actions" aria-label="Event Shortcuts">
+            <h2>Quick Shortcuts</h2>
+            <button class="action-btn" data-prompt="Plan a Wedding with budget breakdown, timeline, and vendor checklist." aria-label="Plan Wedding">💒 Wedding</button>
+            <button class="action-btn" data-prompt="Organize a Birthday Party with timeline, budget, and personalized ideas." aria-label="Plan Birthday">🎂 Birthday</button>
+            <button class="action-btn" data-prompt="Coordinate a Community Event with vendor checklist and volunteer timeline." aria-label="Plan Community Event">🎈 Community</button>
         </aside>
     </main>
 

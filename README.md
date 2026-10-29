@@ -1,25 +1,27 @@
 # AI Celebration & Event Planner (Challenge 5)
 
 ## 📌 Problem Statement Alignment
-This project directly solves **[Challenge 5] Celebration & Event Planner**. 
-It utilizes a simulated **Generative AI** engine to target core event management objectives: automating party schedules, calculating venue budgets, managing guest RSVP workflows, and generating intelligent celebration itineraries. By providing AI-powered planning insights, it fulfills the core user need for seamless event management and budgeting.
+This project directly implements **[Challenge 5] Celebration & Event Planner**. 
+Powered by Python, JavaScript, and Generative AI logic, it serves as an intelligent planning assistant for **weddings**, **birthdays**, and **community events**. 
 
-## ⚙️ Efficiency & Architecture
-* **Time & Memory Optimization:** Utilizes asynchronous JavaScript (`async/await`) to ensure non-blocking DOM updates and hardware-accelerated CSS rendering to minimize reflows.
-* **Resource Utilization:** Scripts are deferred to optimize First Contentful Paint (FCP).
+It delivers four automated core features:
+1. **Budgets:** Comprehensive budget calculation and percentage-based financial allocation.
+2. **Timelines:** Step-by-step event schedules and hour-by-hour itineraries.
+3. **Vendor Checklists:** Itemized tasks and vendor management requirements.
+4. **Personalized Ideas:** Tailored event themes, activity recommendations, and creative concepts.
 
-## 🔒 Security
-* **Safe Practices:** Enforces strict XSS (Cross-Site Scripting) prevention by relying strictly on `textContent` DOM manipulation instead of `innerHTML` for user inputs.
-* **Vulnerability Mitigation:** Implements a strict `Content-Security-Policy` (CSP) via HTML meta tags to block unauthorized inline scripts. 
+## ⚙️ Core Architecture
+* **Python Backend (`app.py`):** Structured planning engine utilizing AI generation for weddings, birthdays, and community events.
+* **Responsive Frontend (`index.html`, `app.js`):** Interactive interface featuring dynamic prompt shortcuts.
 
-## 🧪 Testing & Maintainability
-* Includes a robust test suite (`tests.js`) that validates event prompt sanitization logic.
-* Integrated with GitHub Actions CI/CD workflows (`.github/workflows/evaluate.yml`) to ensure continuous validation and maintainability over time.
+## 🧪 Testing & Reliability
+* **PyTest Framework (`tests/test_planner.py`):** Validates event generation logic, budget calculations, timeline consistency, and vendor checklists.
+* **CI/CD Workflow (`.github/workflows/evaluate.yml`):** Automated continuous integration running pytest on every push.
+
+## 🔒 Security & Performance
+* **XSS Protection:** Enforces strict DOM text content sanitization.
+* **Content Security Policy (CSP):** Implements CSP meta tags.
+* **Code Quality:** Adheres strictly to PEP 8 and JavaScript strict mode (`"use strict";`).
 
 ## ♿ Accessibility (a11y)
-* Implements comprehensive WAI-ARIA labels (`aria-live`, `aria-label`).
-* Utilizes semantic HTML5 architecture (`<header>`, `<main>`, `<aside>`) and high-contrast CSS focus states for full keyboard navigation support.
-
-## 💻 Code Quality
-* Written in strict ES6 vanilla JavaScript (`"use strict";`).
-* Fully documented with professional JSDoc comments for readability and clean code formatting.
+* Full WAI-ARIA support (`aria-live`, `aria-label`) and semantic HTML5 tags.
