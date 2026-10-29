@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Business Consultant Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Controls -->
+        <aside class="sidebar">
+            <h2>BizAssistant AI</h2>
+            <p class="subtitle">Smart Workflow & Decision Helper</p>
+            <div class="mode-selector">
+                <label for="consult-mode">Select Vertical Mode:</label>
+                <select id="consult-mode">
+                    <option value="catalog">Catalog & Inventory Management</option>
+                    <option value="consultation">Client Consultation & Strategy</option>
+                    <option value="support">Customer Support Triage</option>
+                </select>
+            </div>
+            <div class="quick-actions">
+                <h3>Quick Prompts</h3>
+                <button class="quick-btn" data-prompt="Check inventory status for premium items">Check Inventory</button>
+                <button class="quick-btn" data-prompt="Draft a client consultation proposal">Draft Proposal</button>
+                <button class="quick-btn" data-prompt="Resolve high-priority support ticket">Support Triage</button>
+            </div>
+        </aside>
+
+        <!-- Main Chat / Interaction Area -->
+        <main class="chat-main">
+            <header class="chat-header">
+                <h1>Business Workflow Assistant</h1>
+                <div class="header-actions">
+                    <button id="clear-btn" class="clear-btn">Clear Chat</button>
+                    <span class="status-badge">System Online</span>
+                </div>
+            </header>
+            
+            <div id="chat-window" class="chat-window">
+                <div class="message assistant-message">
+                    <p>Hello! I am your Intelligent Business Consultant Assistant. Select a mode or type a request below to optimize your workflow.</p>
+                </div>
+            </div>
+
+            <form id="chat-form" class="chat-input-area">
+                <input type="text" id="user-input" placeholder="Type your business inquiry here..." required autocomplete="off">
+                <button type="submit" id="send-btn">Send</button>
+            </form>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
