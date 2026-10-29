@@ -23,18 +23,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const processEventPrompt = async (prompt) => {
         appendMessage("You", sanitizeHTML(prompt), "user-message");
         userInput.value = "";
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 400));
+
+        const lowerPrompt = prompt.toLowerCase();
+        
+        // Extract numbers dynamically from user input (default to 100 guests, $5000 budget if not typed)
+        const numbers = prompt.match(/\d+/g);
+        const guestCount = numbers && numbers[0] ? parseInt(numbers[0]) : 100;
+        const totalBudget = numbers && numbers[1] ? parseFloat(numbers[1]) : guestCount * 50;
+
+        const venue = (totalBudget * 0.40).toLocaleString();
+        const catering = (totalBudget * 0.35).toLocaleString();
+        const decor = (totalBudget * 0.15).toLocaleString();
+        const contingency = (totalBudget * 0.10).toLocaleString();
 
         let responseHTML = "";
-        const lowerPrompt = prompt.toLowerCase();
 
         if (lowerPrompt.includes("wedding")) {
-            responseHTML = `<br><strong>💒 Wedding Plan:</strong><br>• <strong>Budget:</strong> Venue (40%), Catering (35%), Decor (15%), Contingency (10%)<br>• <strong>Timeline:</strong> Ceremony (04:00 PM) → Reception (06:00 PM)<br>• <strong>Vendor Checklist:</strong> Caterer, Photographer, Florist, DJ<br>• <strong>Personalized Idea:</strong> Digital memory guestbook.`;
+            responseHTML = `
+                <br><strong>💒 Customized Wedding Plan (${guestCount} Guests):</strong><br>
+                • <strong>Dynamic Budget ($${totalBudget.toLocaleString()}):</strong> Venue ($${venue}), Catering ($${catering}), Decor ($${decor}), Contingency ($${contingency})<br>
+                • <strong>Timeline:</strong> Ceremony (04:00 PM) → Cocktail Hour (06:00 PM) → Reception (08:00 PM)<br>
+                • <strong>Vendor Checklist:</strong> Caterer for ${guestCount} guests, Photographer, Florist, DJ/Band, Venue Manager<br>
+                • <strong>Personalized Idea:</strong> Interactive digital guestbook with photo slideshow for ${guestCount} guests.
+            `;
         } else if (lowerPrompt.includes("birthday")) {
-            responseHTML = `<br><strong>🎂 Birthday Plan:</strong><br>• <strong>Budget:</strong> Hall (40%), Cake/Food (35%), Balloons (15%), Games (10%)<br>• <strong>Timeline:</strong> Arrival (05:00 PM) → Cake Cutting (07:30 PM)<br>• <strong>Vendor Checklist:</strong> Cake Designer, Entertainer, Caterer<br>• <strong>Personalized Idea:</strong> Instant print photo booth.`;
+            responseHTML = `
+                <br><strong>🎂 Customized Birthday Plan (${guestCount} Guests):</strong><br>
+                • <strong>Dynamic Budget ($${totalBudget.toLocaleString()}):</strong> Hall ($${venue}), Food/Cake ($${catering}), Decor ($${decor}), Games ($${contingency})<br>
+                • <strong>Timeline:</strong> Arrival (05:00 PM) → Games (06:30 PM) → Cake Cutting (07:30 PM)<br>
+                • <strong>Vendor Checklist:</strong> Cake Designer, Balloon Artist, Entertainer, Caterer<br>
+                • <strong>Personalized Idea:</strong> Instant photo booth station tailored for ${guestCount} guests.
+            `;
         } else {
-            responseHTML = `<br><strong>🎈 Community Event:</strong><br>• <strong>Budget:</strong> Stage (40%), Stalls (35%), Marketing (15%), Permits (10%)<br>• <strong>Timeline:</strong> Setup (09:00 AM) → Workshops (01:00 PM)<br>• <strong>Vendor Checklist:</strong> A/V Team, Food Trucks, Security<br>• <strong>Personalized Idea:</strong> Interactive artisan workshops.`;
+            responseHTML = `
+                <br><strong>🎈 Customized Community Event (${guestCount} Guests):</strong><br>
+                • <strong>Dynamic Budget ($${totalBudget.toLocaleString()}):</strong> Stage & Audio ($${venue}), Food Stalls ($${catering}), Marketing ($${decor}), Permits ($${contingency})<br>
+                • <strong>Timeline:</strong> Volunteer Setup (09:00 AM) → Welcome (10:00 AM) → Workshops (01:00 PM)<br>
+                • <strong>Vendor Checklist:</strong> Audio/Visual Team, Food Trucks, Security Staff, City Permits<br>
+                • <strong>Personalized Idea:</strong> Interactive artisan workshops and community feedback wall.
+            `;
         }
+
         appendMessage("Event Planner AI", responseHTML, "ai-message");
     };
 
