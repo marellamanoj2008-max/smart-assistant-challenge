@@ -3,53 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intelligent Business Consultant Assistant</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
+    <meta name="description" content="AI-powered Intelligent Business Consultant & Workflow Helper utilizing Generative AI.">
+    <title>Intelligent Business Consultant | GenAI</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Sidebar / Controls -->
-        <aside class="sidebar">
-            <h2>BizAssistant AI</h2>
-            <p class="subtitle">Smart Workflow & Decision Helper</p>
-            <div class="mode-selector">
-                <label for="consult-mode">Select Vertical Mode:</label>
-                <select id="consult-mode">
-                    <option value="catalog">Catalog & Inventory Management</option>
-                    <option value="consultation">Client Consultation & Strategy</option>
-                    <option value="support">Customer Support Triage</option>
-                </select>
-            </div>
-            <div class="quick-actions">
-                <h3>Quick Prompts</h3>
-                <button class="quick-btn" data-prompt="Check inventory status for premium items">Check Inventory</button>
-                <button class="quick-btn" data-prompt="Draft a client consultation proposal">Draft Proposal</button>
-                <button class="quick-btn" data-prompt="Resolve high-priority support ticket">Support Triage</button>
-            </div>
-        </aside>
+    <header role="banner">
+        <h1>Intelligent Business Consultant</h1>
+        <p>AI-Powered Workflow Helper & Enterprise Optimization</p>
+    </header>
 
-        <!-- Main Chat / Interaction Area -->
-        <main class="chat-main">
-            <header class="chat-header">
-                <h1>Business Workflow Assistant</h1>
-                <div class="header-actions">
-                    <button id="clear-btn" class="clear-btn">Clear Chat</button>
-                    <span class="status-badge">System Online</span>
-                </div>
-            </header>
-            
-            <div id="chat-window" class="chat-window">
-                <div class="message assistant-message">
-                    <p>Hello! I am your Intelligent Business Consultant Assistant. Select a mode or type a request below to optimize your workflow.</p>
+    <main role="main" class="container">
+        <section class="chat-interface" aria-label="AI Consultation Interface">
+            <div id="chat-window" class="chat-window" aria-live="polite" role="log">
+                <div class="message ai-message">
+                    <strong>Consultant AI:</strong> Hello! I am your Intelligent Business Consultant. How can I optimize your workflow today?
                 </div>
             </div>
 
-            <form id="chat-form" class="chat-input-area">
-                <input type="text" id="user-input" placeholder="Type your business inquiry here..." required autocomplete="off">
-                <button type="submit" id="send-btn">Send</button>
+            <form id="chat-form" class="input-area" aria-label="Message Input Form">
+                <label for="user-input" class="sr-only">Type your business query</label>
+                <input type="text" id="user-input" placeholder="e.g., Draft a client consultation proposal..." required aria-required="true">
+                <button type="submit" id="send-btn" aria-label="Send prompt to AI">Analyze</button>
             </form>
-        </main>
-    </div>
-    <script src="app.js"></script>
+        </section>
+
+        <aside class="quick-actions" aria-label="Automated Workflow Actions">
+            <h2>Workflow Automation</h2>
+            <button class="action-btn" data-prompt="Draft a client consultation proposal." aria-label="Quick Action: Draft Proposal">Draft Proposal</button>
+            <button class="action-btn" data-prompt="Generate a Q4 risk assessment matrix." aria-label="Quick Action: Risk Assessment">Risk Assessment</button>
+            <button class="action-btn" data-prompt="Resolve high-priority support ticket." aria-label="Quick Action: Support Triage">Support Triage</button>
+        </aside>
+    </main>
+
+    <script src="app.js" defer></script>
 </body>
 </html>
