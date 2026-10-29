@@ -1,8 +1,8 @@
 "use strict";
 
 /**
- * @fileoverview Core logic for Intelligent Business Consultant.
- * Ensures secure input handling, asynchronous processing, and efficient DOM updates.
+ * @fileoverview Core logic for AI Celebration & Event Planner.
+ * Ensures secure input handling, asynchronous processing, and efficient event prompt generation.
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /**
      * Appends a message to the chat window efficiently.
-     * @param {string} sender - 'User' or 'Consultant AI'.
+     * @param {string} sender - 'You' or 'Event Planner AI'.
      * @param {string} text - The message content.
      * @param {string} className - CSS class for styling.
      */
@@ -34,46 +34,41 @@ document.addEventListener("DOMContentLoaded", () => {
         msgDiv.innerHTML = `<strong>${sanitizeHTML(sender)}:</strong> ${sanitizeHTML(text)}`;
         
         chatWindow.appendChild(msgDiv);
-        chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll
+        chatWindow.scrollTop = chatWindow.scrollHeight;
     };
 
     /**
-     * Simulates an asynchronous AI processing delay for efficiency metrics.
-     * @param {string} prompt - The user's query.
+     * Simulates asynchronous AI event processing.
+     * @param {string} prompt - The user's event request.
      */
-    const processAIPrompt = async (prompt) => {
-        // Append user message immediately
+    const processEventPrompt = async (prompt) => {
         appendMessage("You", prompt, "user-message");
         userInput.value = "";
 
-        // Simulate API latency & asynchronous non-blocking thread
-        await new Promise(resolve => setTimeout(resolve, 800));
+        await new Promise(resolve => setTimeout(resolve, 600));
 
-        // Generate dynamic business response based on keywords
-        let aiResponse = "I have analyzed your request. To optimize this workflow, I recommend executing a tiered resource allocation strategy utilizing GenAI automation.";
-        if (prompt.toLowerCase().includes("proposal")) {
-            aiResponse = "Generating client proposal template... Workflow structured into: 1. Executive Summary, 2. Resource Allocation, 3. ROI Projections.";
-        } else if (prompt.toLowerCase().includes("risk")) {
-            aiResponse = "Q4 Risk Matrix initialized. Identifying operational bottlenecks and suggesting automated compliance tracking.";
+        let aiResponse = "I have analyzed your event plan. Here is your optimized celebration schedule and estimated vendor budget breakdown.";
+        if (prompt.toLowerCase().includes("itinerary") || prompt.toLowerCase().includes("birthday")) {
+            aiResponse = "Birthday Itinerary Generated: 1. Welcome & Drinks (6:00 PM), 2. Cake Cutting (7:30 PM), 3. Dinner & Music (8:00 PM).";
+        } else if (prompt.toLowerCase().includes("budget") || prompt.toLowerCase().includes("vendor")) {
+            aiResponse = "Budget Estimated for 100 Guests: Venue (40%), Catering (35%), Decoration & Photography (25%).";
         }
 
-        appendMessage("Consultant AI", aiResponse, "ai-message");
+        appendMessage("Event Planner AI", aiResponse, "ai-message");
     };
 
-    // Event Listener for Manual Input
     chatForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const text = userInput.value.trim();
         if (text) {
-            processAIPrompt(text);
+            processEventPrompt(text);
         }
     });
 
-    // Event Listeners for Workflow Automation Buttons
     actionBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             const prompt = btn.getAttribute("data-prompt");
-            processAIPrompt(prompt);
+            processEventPrompt(prompt);
         });
     });
 });

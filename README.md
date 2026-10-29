@@ -1,8 +1,8 @@
-# Intelligent Business Consultant & Workflow Helper (Challenge 5)
+# AI Celebration & Event Planner (Challenge 5)
 
 ## 📌 Problem Statement Alignment
-This project directly solves **Option B: Intelligent Business Consultant & Workflow Helper**. 
-It utilizes a simulated **Generative AI** engine to target core enterprise objectives: automating business workflows, generating intelligent client proposals, and providing dynamic operational triage. By providing AI-powered insights, it fulfills the core user need for workflow optimization and resource management in corporate environments.
+This project directly solves **[Challenge 5] Celebration & Event Planner**. 
+It utilizes a simulated **Generative AI** engine to target core event management objectives: automating party schedules, calculating venue budgets, managing guest RSVP workflows, and generating intelligent celebration itineraries. By providing AI-powered planning insights, it fulfills the core user need for seamless event management and budgeting.
 
 ## ⚙️ Efficiency & Architecture
 * **Time & Memory Optimization:** Utilizes asynchronous JavaScript (`async/await`) to ensure non-blocking DOM updates and hardware-accelerated CSS rendering to minimize reflows.
@@ -13,7 +13,7 @@ It utilizes a simulated **Generative AI** engine to target core enterprise objec
 * **Vulnerability Mitigation:** Implements a strict `Content-Security-Policy` (CSP) via HTML meta tags to block unauthorized inline scripts. 
 
 ## 🧪 Testing & Maintainability
-* Includes a robust test suite (`tests.js`) that validates sanitization logic.
+* Includes a robust test suite (`tests.js`) that validates event prompt sanitization logic.
 * Integrated with GitHub Actions CI/CD workflows (`.github/workflows/evaluate.yml`) to ensure continuous validation and maintainability over time.
 
 ## ♿ Accessibility (a11y)
@@ -22,4 +22,4 @@ It utilizes a simulated **Generative AI** engine to target core enterprise objec
 
 ## 💻 Code Quality
 * Written in strict ES6 vanilla JavaScript (`"use strict";`).
-* Fully documented with professional JSDoc comments for readability and well-structured clean code formatting.
+* Fully documented with professional JSDoc comments for readability and clean code formatting.
